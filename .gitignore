@@ -1,0 +1,7 @@
+.idea
+target
+reports
+log
+*.iml
+*.txt
+*.bac
