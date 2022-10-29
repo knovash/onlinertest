@@ -8,37 +8,39 @@ import org.openqa.selenium.support.FindBy;
 public class HomePage extends AbstractPage {
 
 
-//    (xpath = ".//*[contains(@class, 'fast-search__input')]//span[text()]")
-//    @FindBy(id = "twotabsearchtextbox")
-//    private ExtendedWebElement searchInput;
-
-
-    @FindBy(xpath = ".//*[contains(@class, 'fast-search__input')]")
+    @FindBy(xpath = "//*[contains(@class, 'fast-search__input')]")
     private ExtendedWebElement searchInput;
 
-    @FindBy(id = "nav-search-bar-form")
-    private SearchBlock searchBlock;
+    @FindBy(xpath = "//*[@class='auth-bar__item auth-bar__item--text']")
+    private ExtendedWebElement loginButton;
 
-//    @FindBy(xpath = "//*[@data-toaster-type and .//*[contains(text(), 'Shopping Transition')]]//input[@data-action-type='DISMISS']")
-//    private ExtendedWebElement dismissLocationButton;
 
-    @FindBy(xpath = "//*[@data-toaster-type and .//*[contains(text(), 'Shopping Transition')]]")
-    private LocationElement locationElement;
+    @FindBy(xpath = "//iframe[@class='modal-iframe']")
+    private ExtendedWebElement searchiframe;
 
     public HomePage(WebDriver driver) {
         super(driver);
         setPageURL("/");
     }
 
-    public SearchBlock getSearchBlock() {
-        return searchBlock;
-    }
-
-    public LocationElement getLocationElement() {
-        return locationElement;
-    }
-
     public ExtendedWebElement getSearchInput() {
         return searchInput;
     }
+
+    public ExtendedWebElement getLoginButton() {
+        return loginButton;
+    }
+
+    public LoginPage clickLoginButton() {
+        loginButton.click();
+        return new LoginPage(getDriver());
+    }
+
+    public void clickOnIframe() {
+        SearchFrame searchFrame = new SearchFrame(driver);
+        driver.switchTo().frame(searchiframe.getElement());
+        searchFrame.clickClose();
+        getDriver().switchTo().defaultContent();
+    }
+
 }

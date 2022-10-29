@@ -5,16 +5,16 @@ import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class Frame extends AbstractPage {
+public class SearchFrame extends AbstractPage {
 
-    @FindBy(xpath = "//div[@class='tag-of-element']")
-    private ExtendedWebElement component;
+    @FindBy(xpath = "//span[@class='search__closet']")
+    private ExtendedWebElement searchClose;
 
-    public Frame(WebDriver driver) {
+    public SearchFrame(WebDriver driver) {
         super(driver);
     }
 
-    public void click() {
-        component.click();
+    public void clickClose() {
+        searchClose.click();
     }
 }
