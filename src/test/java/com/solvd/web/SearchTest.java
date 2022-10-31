@@ -12,7 +12,9 @@ public class SearchTest implements IAbstractTest {
         homePage.open();
         System.out.println();
         homePage.getSearchInput().type("samsung");
-        homePage.clickOnIframe();
+//        SearchFrame searchFrame = homePage.getSearchInput().click();
+        homePage.getIframe().clickClose();
+//        homePage.clickOnIframe();
 
     }
 }

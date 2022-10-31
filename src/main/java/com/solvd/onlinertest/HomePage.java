@@ -15,6 +15,8 @@ public class HomePage extends AbstractPage {
     private ExtendedWebElement loginButton;
 
 
+//    @FindBy(xpath = "//iframe[@class='modal-iframe']")
+
     @FindBy(xpath = "//iframe[@class='modal-iframe']")
     private ExtendedWebElement searchiframe;
 
@@ -41,6 +43,12 @@ public class HomePage extends AbstractPage {
         driver.switchTo().frame(searchiframe.getElement());
         searchFrame.clickClose();
         getDriver().switchTo().defaultContent();
+    }
+
+    public SearchFrame getIframe() {
+        SearchFrame searchFrame = new SearchFrame(driver);
+        driver.switchTo().frame(searchiframe.getElement());
+        return searchFrame;
     }
 
 }

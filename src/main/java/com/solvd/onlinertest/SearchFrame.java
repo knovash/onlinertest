@@ -17,4 +17,8 @@ public class SearchFrame extends AbstractPage {
     public void clickClose() {
         searchClose.click();
     }
+
+    public ExtendedWebElement getSearchClose() {
+        return searchClose;
+    }
 }

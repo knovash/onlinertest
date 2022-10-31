@@ -16,7 +16,7 @@ public class LoginTest implements IAbstractTest {
         loginPage.typeInNameInput("name1");
         loginPage.typeInPasswordInput("pwd1");
         System.out.println();
-//        loginPage.getSubmitButton().click();
+        loginPage.getSubmitButton().click();
         SoftAssert sa = new SoftAssert();
         sa.assertTrue(loginPage.getSubmitButton().isElementPresent(), "Submit button not aviable");
 //        iAmNotARobotPage.getReCaptchaCheckBox();
